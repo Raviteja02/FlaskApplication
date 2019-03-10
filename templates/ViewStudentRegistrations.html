@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>SVU Health Centre</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="/static/css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="/static/css/style.css" rel="stylesheet">
+
+  </head>
+
+
+
+  <!-- Start your project here-->
+  <body >
+
+
+<nav class="navbar navbar-expand-lg  navbar-dark cyan">
+
+  <!-- Navbar brand -->
+  
+
+<a class="navbar-brand" href="#">
+    <img src="static/img/Sv-University-logo2.png" height="80" width="100" alt="svu logo">SVU Health Centre
+  </a>
+
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto ">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Dashboard
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Log Out</a>
+      </li>
+
+      <!-- Dropdown -->
+      
+
+    </ul>
+    <!-- Links -->
+
+   
+  </div>
+  <!-- Collapsible content -->
+
+</nav>
+<!--/.Navbar--> 
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h2 class="display-4">Registrations to be accepted</h2>
+    <p class="lead">These are the registration requests to be accepted.</p>
+  </div>
+</div>
+
+
+<div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Student Name</th>
+                  <th>Admission Number</th>
+                  <th>Department</th>
+                  <th>Course</th>
+                  <th>Email</th>
+                  <th>Contact Number</th>
+                  <th>Response</th>
+                  </tr>
+              </thead>
+              <tbody>
+                {% with s_data = get_flashed_messages() %}
+                   {% if s_data %}
+                      {% for x in s_data %}
+                         {% for y in x %}
+                            <tr>
+                            
+                            <td>{{y['Student_name']}}</td>
+                            <td>{{y['Admission_number']}}</td>
+                            <td>{{y['department']}}</td>
+                            <td>{{y['course']}}</td>
+                            <td>{{y['email']}}</td>
+                            <td>{{y['contact_no']}}</td>
+                            <td><a class="btn blue-gradient" href="./AcceptRequest">Accept Request</a>&nbsp&nbsp<a class="btn peach-gradient" href="#">Reject Request</a></td>
+                            
+                            </tr>
+                         {% endfor%}   
+                      {% endfor%}
+                     {% endif %}
+                {% endwith %}
+              </tbody>
+            </table>
+          </div>
+
+<!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="/static/js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="/static/js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="/static/js/mdb.js"></script>
+</body>
+
+</html>

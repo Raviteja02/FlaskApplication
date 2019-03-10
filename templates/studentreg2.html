@@ -1,0 +1,282 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="static\css\bootstrap.min.css">
+	<link rel="stylesheet" href="static\css\custom.css">
+	<link rel="shortcut icon" href="static\img\edumedics-favicon-1013x1024-640x480.ico">
+	
+	<script type="text/javascript">
+
+       
+        function _calcAge() {
+            var date = new Date(document.getElementById("dob").value);
+            var today = new Date();
+
+            
+            var age = ~~((Date.now() - date) / (31557600000));
+                 document.getElementById('Age').value = age;
+            return Age;
+			
+        }
+		
+		</script>
+<title> WELCOME STUDENT!!!</title>
+<link href="" rel="stylesheet" type="text/css">
+    
+  </head>
+  <body>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="index-1.html">
+    <img src="static\img\loo.png" width="60" height="40" class="d-inline-block align-top" alt="">
+  </a>
+  <a class="navbar-brand" href="index-1.html">SVU HEALTH CENTRE</a>
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index-1.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
+<div class="jumbotron" style="background-color: #3397B1"><font color="white"> 
+  <h1 class="display-4">Hello, Student!</h1>
+  <p class="lead">We Welcome You To The Registration Form Of Students of SVU.</p>
+  <hr class="my-4">
+<form method="POST" action="./StudentRegister" enctype="multipart/form-data">
+ <h1 class="display-6 align=" center""="">Student Information</h1>
+ <hr class="my-4">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Student Name</label>
+      <input type="text" name="Student_name" class="form-control" id="inputE4" placeholder="Enter Student name Name" required="" style="text-transform:uppercase">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Admission Number</label>
+      <input type="text" name="Admission_number" class="form-control" id="inputPassword4" maxlength="10" placeholder="Enter Admission Number" required="" style="text-transform:uppercase">
+    </div>
+  </div>
+  <div class="form-row">
+  <div class="form-group col-md-6">
+    <label for="inputAddress">Father Name</label>
+    <input type="text" name="Father_name" class="form-control" id="inputAddress" placeholder="Enter Father Name" required="" style="text-transform:uppercase">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="inputAddress2">Mother Name</label>
+    <input type="text" name="Mother_name" class="form-control" id="inputAddress2" placeholder="Enter Mother Name" required="" style="text-transform:uppercase">
+  </div>
+  </div>
+  
+  <div class="form-row">
+  <div class="form-group col-md-4">
+      <label for="inputZip">Date Of Joining</label>
+      <input type="date" name="doj" class="form-control" id="inputZip" required="" style="text-transform:uppercase">
+    </div>
+	<div class="form-group col-md-4">
+      <label for="inputZip">Course Completion Date</label>
+      <input type="date" name="coursecomplete" class="form-control" id="inputZip" required="" style="text-transform:uppercase">
+    </div>
+	<div class="form-group col-md-4">
+      <label for="inputState">Name Of The Department</label>
+	<select id="inputState" name="department" class="form-control" required="" style="text-transform:uppercase">
+	<option selected="" value="Telugu Studies">Telugu Studies</option>
+<option value="Tamil">Tamil</option>
+<option value="Center For gandhian studies">Center For gandhian studies</option>
+<option value="economics">economics</option>
+<option value="english">english</option>
+<option value="hindi">hindi</option>
+<option value="sociology">sociology</option>
+<option value="law">law</option>
+<option value="library&information science">library&information science </option>
+<option value="mass communication&journalism ">mass communication&journalism </option>
+<option value="Human rights& social development">Human rights& social development</option>
+<option value="performing arts">performing arts</option>
+<option value="philosophy">philosophy</option>
+<option value="physical education">physical education</option>
+<option value="urdu">urdu</option>
+<option value="Ancient indian history and archaeology">Ancient indian history and archaeology</option>
+<option value="econometrics">econometrics</option>
+<option value="audit&conducting education">audit&conducting education </option>
+<option value="education">education</option>
+<option value="extension studies">extension studies</option>
+<option value="foriegn languages and linguistics">foriegn languages and linguistics</option>
+<option value="history">history</option>
+<option value="sanskrit">sanskrit</option>
+<option value="political science&public adminstration">political science&public adminstration</option>
+<option value="center for southeast asian & pacific studies">center for southeast asian & pacific studies</option>
+<option value="population studies">population studies</option>
+<option value="statistics">statistics</option>
+<option value="bio-chemistry">bio-chemistry</option>
+<option value="botany">botony</option>
+<option value="environmental studies">environmental studies</option>
+<option value="future studies">future studies</option>
+<option value="psychology">psychology</option>
+<option value="home science">home sciences</option>
+<option value="mathematics">mathematics</option>
+<option value="physics">physics</option>
+<option value="geology">geology</option>
+<option value="virology">virology</option>
+<option value="microbilology">microbilology</option>
+<option value="bio-technology">bio-technology</option>
+<option value="anthropology">anthropology</option>
+<option value="chemistry">chemistry</option>
+<option value="fishery sciences&aqua-culture">fishery sciences&aqua-culture </option>
+<option value="zoology">zoology</option>
+<option value="geography">geography</option>
+<option value="computer science">computer science</option>
+<option value="commerce">commerce</option>
+<option value="business management">business management</option>
+<option value="pharmacy">pharmacy</option>
+<option value="electrical &elctronics engineering">electrical & electronics engineering</option>
+<option value="electronics & communication engineering">electronics & communication engineering</option>
+<option value="chemical engineering">chemical engineering</option>
+<option value="mechanical engineering">mechanical engineering</option>
+<option value="civil engineering">civil engineering</option>
+<option value="computer science & engineering">computer science & engineering</option>
+
+</select>
+</div>
+</div>
+  
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputCity">password</label>
+      <input type="password" name="password" class="form-control" id="inputCity" placeholder="Enter Password" required="" style="text-transform:uppercase">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">Gender</label>
+      <select id="inputState" name="gender" class="form-control" required="" style="text-transform:uppercase">
+        <option selected="">Male</option>
+        <option>Female</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputZip">Date Of Birth</label>
+      <input type="date" name="dob" class="form-control" id="dob" onblur="_calcAge();" required="" style="text-transform:uppercase">
+    </div>
+  </div>
+	<div class="form-row">
+    <div class="form-group col-md-4">
+		
+      <label for="inputState">Relegion</label>
+      <select id="inputState" name="relegion" class="form-control" required="">
+        <option selected="">Select your Relegion</option>
+		  <option>Hindu</option>
+        <option>Muslim</option>
+		<option>Christian</option>
+      </select>
+    </div>
+		<div class="form-group col-md-4">
+      <label for="inputState">Caste</label>
+      <select id="inputState" name="caste" class="form-control" required="">
+        <option selected="">Select your Category</option>
+		  <option>GENERAL</option>
+        <option>BC-A</option>
+		<option>BC-B</option>
+		<option>BC-C</option>
+		<option>BC-D</option>
+		<option>BC-E</option>
+		<option>SC</option>
+		<option>ST</option>
+      </select>
+    </div>
+	 <div class="form-group col-md-4">
+      <label for="inputEmail4">sub_caste</label>
+      <input type="text" name="sub_caste" class="form-control" id="inputE4" placeholder="Enter your sub-caste" required="" style="text-transform:uppercase">
+    </div>
+  </div>
+  <div class="form-row">
+   <div class="form-group col-md-4">
+    <label for="inputAddress2">Course</label>
+    <input type="text" name="course" class="form-control" id="inputAddress2" placeholder="Enter Course Name" required="" style="text-transform:uppercase">
+  </div>
+    
+    <div class="form-group col-md-4">
+      <label for="inputZip">Contact Number</label>
+      <input type="text" name="contact_no" class="form-control" id="inputZip" maxlength="10" placeholder="Enter Contact Number" required="" style="text-transform:uppercase">
+    </div>
+	<div class="form-group col-md-4">
+      <label for="inputPassword4">Email</label>
+      <input type="email" name="email" class="form-control" id="inputPassword4" placeholder="Enter Email" required="">
+    </div>
+  </div>
+   <div class="form-row">
+    
+    
+	 <div class="form-group col-md-4">
+      <label for="inputEmail4">AAdhar Number</label>
+      <input type="text" name="aadhar_no" class="form-control" id="inputE4" maxlength="12" placeholder="Enter Aadhaar Number" required="" style="text-transform:uppercase">
+    </div>
+	 <div class="form-group col-md-4">
+      <label for="inputEmail4">Age</label>
+      <input type="text" name="Age" class="form-control" id="Age" placeholder="Enter Age" readonly="">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">Blood Group</label>
+      <select name="bloodgroup" id="inputState" class="form-control" required="" style="text-transform:uppercase">
+        <option selected="">A+VE</option>
+        <option>A-VE</option>
+		<option>B+VE</option>
+		<option>B-VE</option>
+		<option>O+VE</option>
+		<option>O-VE</option>
+		<option>AB+VE</option>
+		<option>AB-VE</option>
+      </select>
+    </div>
+  </div>
+  
+  <div class="form-row">
+   <div class="form-group col-md-8">
+      <label for="inputEmail4">Address</label>
+      <input type="text" name="address" class="form-control" id="inputE4" placeholder="Enter Address" required="" style="text-transform:uppercase">
+    </div>
+	 <div class="form-group col-md-4">
+      <label for="inputEmail4">City</label>
+      <input type="text" name="city" class="form-control" id="inputE4" placeholder="Enter Your City" required="" style="text-transform:uppercase">
+    </div>
+  </div>
+  <div class="form-row">
+    
+   <div class="form-group col-md-4">
+      <label for="inputEmail4">Upload Image</label>
+      <input type="file" name="image" class="form-control" id="inputE4" style="text-transform:uppercase">
+    </div>
+  </div>
+
+  
+  
+  
+  <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck" required="" style="text-transform:uppercase">
+      <label class="form-check-label" for="gridCheck">
+        I Agree to the terms and conditions, and the information given above is true.
+      </label>
+    </div>
+  <br>
+  <button type="submit" name="submit" class="btn btn-danger">Register</button>
+</form>
+</font></div>
+
+<nav class="navbar bottom navbar-expand-lg navbar-dark bg-dark font color-dark">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">For any queries mail us at : healthcentersvu@gmail.com</a>
+		</li>
+      </ul>
+  </div>
+</nav>
+<script src="static\js\jquery-3.3.1.min.js"></script>
+    <script src="static\js\popper.min.js"></script>
+    <script src="static\js\bootstrap.min.js"></script></body></html>

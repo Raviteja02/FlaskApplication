@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body bgcolor="yellow">
+<table border="1">
+<tr >
+  <th>Stock Entry Date</th>
+  <th>From Whom Recieved</th>
+  <th>Invoice Number</th>
+    <th>Invoice Date</th>
+    <th>Tablets Name</th>
+    <th>Total Tablets Recieved</th>
+    <th>Rate/Unit</th>
+    <th>Total Balance</th>
+</tr>
+{% for items in records %}
+<tr>
+  <td>{{ items.StockEntryDate }}</td>
+  <td>{{ items.RecievedFrom }}</td>
+  <td>{{ items.InvoiceNumber }}</td>
+  <td>{{ items.InvoiceDate }}</td>
+  <td>{{ items.TabletName}}</td>
+  <td>{{ items.TotalTabsRecieved }}</td>
+  <td>{{ items.RatePerUnit }}</td>
+  <td>{{ items.TotalCost }}</td>
+
+</tr>
+{% endfor %}
+</table>
+<a href="#">clck here to insert another product</a>
+</body>
+</html>
