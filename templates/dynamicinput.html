@@ -23,6 +23,11 @@ height: 50px;
 top:0px;
 left:54px;
 }
+.modal-content{
+  width: 800px;
+  margin:auto;
+}
+
 </style>
 
 </head>
@@ -94,7 +99,7 @@ left:54px;
   <ul class="list-group" id="myTab" role="tablist">
   <li class="list-group-item active">
     <div class="md-v-line"></div><i class="fas fa-user-graduate mr-5"></i>
-    <a class="text-white"id="ManageStudent-tab" data-toggle="tab" href="#ManageStudent" role="tab" aria-controls="ManageStudent"
+    <a class="text-white" id="ManageStudent-tab" data-toggle="tab" href="#ManageStudent" role="tab" aria-controls="ManageStudent"
       aria-selected="true">Manage Student</a>
      
   </li>
@@ -290,25 +295,30 @@ left:54px;
         <button type="button" class="btn-primary p-2 btn-rounded close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body mx-3">
-        
 
+        <div class="row">
+         <div class="col-md-6">
         <div class="md-form mb-5">
           <i class="fas fa-calendar-plus prefix grey-text"></i>
-          <input type="text" id="contact" class="form-control" name="entry_date">
+          <input type="text"  class="form-control" name="entry_date">
           <label >Stock Entry Date</label>
         </div>
+      </div>
 
+         <div class="col-md-6">
         <div class="md-form mb-5">
           <i class="fas fa-chalkboard-teacher prefix grey-text"></i>
-          <input type="text" id="contact" class="form-control" name="recieved_from">
+          <input type="text" class="form-control" name="recieved_from">
           <label >From Whom Recieved</label>
+        </div>
+        </div>
         </div>
 
         <div class="row">
          <div class="col-md-6">
            <div class="md-form mb-5">
              <i class="fab fa-invision prefix grey-text"></i>
-             <input type="text" id="sid" class="form-control" name="invoice_number">
+             <input type="text" class="form-control" name="invoice_number">
              <label >Invoice Number</label>
            </div>
          </div>
@@ -316,27 +326,42 @@ left:54px;
         <div class="col-md-6">
           <div class="md-form mb-5">
             <i class="fas fa-calendar-day prefix grey-text"></i>
-            <input type="text" id="sname" class="form-control" name="invoice_date">
+            <input type="text" class="form-control" name="invoice_date">
             <label >Invoice Date</label>
           </div>
         </div>
        </div>
-
-       <div class="row">
-         <div class="col-md-6">
+      <div id ="dynamic">
+       <div class="row" >
+         <div class="col-md-4">
            <div class="md-form mb-5">
              <i class="fas fa-tablets prefix grey-text"></i>
-             <input type="text" id="sid" class="form-control" name="tab_name">
+             <input type="text" class="form-control" name="tab_name">
              <label >Tablets Name</label>
            </div>
          </div>
 
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="md-form mb-5">
             <i class="fas fa-clipboard-list prefix grey-text"></i>
-            <input type="text" id="sname" class="form-control" name="total_tabs">
-            <label >Total Tablets Recieved</label>
+            <input type="text"  class="form-control" name="total_tabs">
+            <label >Quantity Issued</label>
           </div>
+        </div>
+
+        <div class="col-md-3">
+           <div class="md-form mb-5">
+             <i class="fas fa-hand-holding-usd prefix grey-text"></i>
+             <input type="text" class="form-control" name="rate/unit">
+             <label >Rate/Unit</label>
+           </div>
+         </div>
+
+         <div class="col-md-1">
+          <div class="md-form mb-5">
+           <input type="button" value="Add" id="add">
+         </div>
+         </div>
         </div>
        </div>
 
@@ -358,11 +383,11 @@ left:54px;
         </div>
        </div>
         
-      </div>
+      
       <div class="modal-footer d-flex justify-content-center">
         <button class="btn btn-default" type="submit">Add Stock</button>
       </div>
-  
+     </div>
     </div>
   </div>
 </div>
@@ -555,6 +580,8 @@ left:54px;
 
 
  <!-- SCRIPTS -->
+ 
+ 
   <!-- JQuery -->
   <script type="text/javascript" src="/static/js/jquery-3.3.1.min.js"></script>
   <!-- Bootstrap tooltips -->
@@ -563,6 +590,32 @@ left:54px;
   <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="/static/js/mdb.js"></script>
+  <script type="text/javascript">
+$(document).ready(function(e){
+
+  //Variables
+  var dynamicfield = 
+        ' <div class="row" id ="rem"><div class="col-md-4"><div class="md-form mb-5"><i class="fas fa-tablets prefix grey-text"></i><input type="text"  class="form-control" name="tab_name"><label >Tablets Name</label></div></div><div class="col-md-4"><div class="md-form mb-5"><i class="fas fa-clipboard-list prefix grey-text"></i><input type="text" class="form-control" name="total_tabs"><label >Quantity Issued</label></div></div><div class="col-md-3"><div class="md-form mb-5"><i class="fas fa-hand-holding-usd prefix grey-text"></i><input type="text" class="form-control" name="rate/unit"><label >Rate/Unit</label></div></div><div class="col-md-1"><div class="md-form mb-5"><input type="button" value="X" id="remove"></div></div></div> ';
+
+
+
+  //Add rows to form
+  $("#add").click(function(e){
+     $("#dynamic").append(dynamicfield);
+
+  });
+
+  //Remove rows form the form
+$("#dynamic").on('click','#remove',function(e){
+ 
+  $("#rem").remove();
+
+});
+
+
+
+});
+</script>
 </body>
 
 </html>

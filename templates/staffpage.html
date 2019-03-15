@@ -14,7 +14,12 @@
   <link href="/static/css/mdb.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
   <link href="/static/css/style.css" rel="stylesheet">
-  
+  <style>
+  .modal-content{
+  width: 600px;
+  margin:auto;
+}
+</style>
   
 </head>
 
@@ -147,7 +152,78 @@
               </tbody>
             </table>
           </div>
-<center><button type="submit" class="btn btn-indigo">Generate OP</button></center>
+<center><a class="btn btn-indigo" href="#" data-toggle="modal" data-target="#OPForm">Generate OP</a>
+  </center>
+
+<div class="modal fade" id="OPForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+   
+    <div class="modal-content">
+       <div id="printarea">
+      <div class="modal-header text-center light-blue darken-3 white-text ">
+        <h4 class="modal-title w-100 font-weight-bold"><i class="fas fa-notes-medical"></i> SVU HEALTH CENTRE</h4>
+
+        
+        <button type="button" class="btn-primary p-2 btn-rounded close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        
+      </div>
+      <div class="modal-body mx-3">
+
+        <center><h5> OP Form</h5></center>
+        <div class="row">
+         <div class="col-md-6">
+           <div class="md-form mb-5">
+             <i class="fab fa-invision prefix grey-text"></i>
+             <input type="text" id="sid" class="form-control" name="invoice_number">
+             <label >Admission Number:</label>
+           </div>
+         </div>
+
+        <div class="col-md-6">
+          <div class="md-form mb-5">
+            <i class="fas fa-calendar-day prefix grey-text"></i>
+            <input type="text" id="sname" class="form-control" name="invoice_date">
+            <label >OP Number:</label>
+          </div>
+        </div>
+       </div>
+
+       <div class="row">
+         <div class="col-md-4">
+           <div class="md-form mb-5">
+             <i class="fas fa-tablets prefix grey-text"></i>
+             <input type="text" id="sid" class="form-control" name="tab_name">
+             <label >Student Name:</label>
+           </div>
+         </div>
+
+        <div class="col-md-4">
+          <div class="md-form mb-5">
+            <i class="fas fa-clipboard-list prefix grey-text"></i>
+            <input type="text" id="sname" class="form-control" name="total_tabs">
+            <label >Age:</label>
+          </div>
+        </div>
+       
+         <div class="col-md-4">
+           <div class="md-form mb-5">
+             <i class="fas fa-hand-holding-usd prefix grey-text"></i>
+             <input type="text" id="sid" class="form-control" name="rate/unit">
+             <label >Date:</label>
+           </div>
+         </div>
+       </div>
+      </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <a class="btn btn-indigo" onclick="printContent('printarea')">Generate OP</a>
+      </div>
+  
+    </div>
+  </div>
+</div>
+<!--ending Add Stock Popover-->
 
   </div>
   </div>
@@ -291,6 +367,15 @@
   <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="/static/js/mdb.js"></script>
+  <script >
+ function printContent(el){
+   var restorepage = document.body.innerHTML;
+   var printcontent= document.getElementById(el).innerHTML;
+   document.body.innerHTML=printcontent;
+   window.print();
+   document.body.innerHTML=restorepage;
+ }
+ </script>
 </body>
 
 </html>
