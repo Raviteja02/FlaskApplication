@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>SVU Health Centre</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="/static/css/mdb.min.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+          background-color:#fafafa;
+          font-family:'Roboto';
+        }
+
+        .navbar-brand img {
+            margin-top: -5px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .container { margin:150px auto;}
+    </style>
+</head>
+<body>
+<div class="card offset-md-3 offset-sm-0 " style="max-width: 50rem;">
+    <div class="card-header text-center light-blue darken-3 white-text ">
+    <h4 class="card-title"><i class="fas fa-notes-medical"></i> Issue Stock To Pharmacy!</h4>
+    </div>
+    <div class="card-body p-5">
+
+<form method="post" action="./PharmacyStockIssue">
+
+      
+        
+
+        <div class="md-form mb-5">
+          <i class="fas fa-calendar-plus prefix grey-text"></i>
+          <input type="text" id="contact" class="form-control" name="issue_date">
+          <label >Stock Issue Date</label>
+        </div>
+      <div id="czContainer">
+            <div id="first">
+                <div class="recordset">
+                    <div class="fieldRow clearfix">
+                       <div class="row">
+                        <div class="col-md-4">
+                            <div id="tab_0_name" class="md-form mb-5">   
+                                <i class="fas fa-tablets prefix grey-text"></i>
+                                <input type="text" name="tab_0_name" id="tab_0_name" class="form-control">
+                                <label>Tablet Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div id="tab_0_qty" class="md-form mb-5">
+                                    <i class="fas fa-clipboard-list prefix grey-text"></i> 
+                                    <input type="text" class="form-control" id="tab_0_qty" name="tab_0_qty">
+                                    <label>Quantity</label>  
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div id="tab_0_rate" class="md-form mb-5">       
+                               <i class="fas fa-hand-holding-usd prefix grey-text"></i>
+                               <input type="text" class="form-control" id="tab_0_rate" name="tab_0_rate">
+                               <label>Rate/unit</label> </div>    
+                            </div>
+                        </div>      
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="col-md-6">
+          <div class="md-form mb-5">
+            <i class="fas fa-toilet-paper prefix grey-text"></i>
+            <input type="text" id="sname" class="form-control" name="total_bal">
+            <label >Total Balance</label>
+          </div>
+        </div>
+       </div>
+        
+      
+      <div class="text-center">
+        <button class="btn btn-default" type="submit">Issue Stock</button>
+      </div>
+        
+     
+  
+</form>
+
+</div>
+</div>
+    <script type="text/javascript" src="/static/js/jquery-3.3.1.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="/static/js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="/static/js/mdb.js"></script>
+    
+    <script src="/static/js/jquery.czMore-latest.js"></script>
+    
+    <script type="text/javascript">
+        $("#czContainer").czMore();
+    </script>   
+</body>
+</html>
