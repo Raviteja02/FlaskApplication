@@ -1,12 +1,13 @@
 from flask import Flask,render_template,request, session, redirect, url_for,flash
 import os
 from pymongo import MongoClient as mc
-#from flask_pymongo import PyMongo
+from flask_pymongo import PyMongo
 import json
 import requests
 app=Flask(__name__)
 app.secret_key = os.urandom(24)
-
+app.config["MONGO_URI"] = "mongodb://localhost:27017/PharmacyDB2"
+mongo = PyMongo(app)
 
 connection = mc('localhost')
 database = connection.PharmacyDB2
@@ -21,6 +22,19 @@ collection6 = database.StudentMedicineIssue
 @app.route("/")
 def index():
 	return render_template("index.html")
+
+@app.route("/graph")
+def graph():
+	data = collection4.find()
+	tab=[]
+	dates=[]
+	for tab1 in data:
+		tab.append(tab1['TotalTabsIssued'])
+		dates.append(tab1['StockIssueDate'])
+
+	print(tab)
+
+	return render_template("graph.html",tab=tab,dates=dates)
 
 @app.route("/AdminLogin")
 def AdminLogin():
@@ -69,12 +83,13 @@ def StudentRegister():
 			city  = request.form['city']
 			Accept = 'False'
 			profile_image=request.files['profile_image']
-			PyMongo.save_file(profile_image.filename, profile_image)
+			mongo.save_file(profile_image.filename, profile_image)
 			s_data={'Student_name' : sname,'Admission_number' : admno, 'Father_name' : fname, 'Mother_name' : mname, 'doj' : doj,
 			'coursecomplete' : doc, 'department' : dept, 'password' : pwd, 'gender' : sex, 'dob' : dob, 'relegion' : rel, 'caste' : caste,
 			'sub_caste' : s_caste, 'course' : course, 'contact_no' : phno, 'email' : email, 'aadhar_no' : adno, 'Age' : age,
 			'bloodgroup' :bgp, 'address' : addr, 'city' : city,'profile_image':profile_image.filename,'status':Accept}
 			collection.insert_one(s_data)
+			
 			session['Admission_number'] = request.form['Admission_number']
 			print("data posted Successfully")
 			return render_template("submitted.html",sname = sname)
@@ -92,16 +107,23 @@ def Studentlogin():
 		if login_user:
 			if request.form['pass'] == login_user['password']:
 				session['Admission_number'] = request.form['Admission_number']
+				session['profile_image']=login_user['profile_image']
 				return redirect(url_for('loggedin'))
 		return render_template("studentlogin.html")
 	return render_template("studentlogin.html")
 
 @app.route('/LoggedIn')
 def loggedin():
-    if 'Admission_number' in session:
-    	return render_template('logged2.html',name=session['Admission_number'])
+	if 'Admission_number' in session:
+		return render_template('logged2.html',name=session['Admission_number'],filename=session['profile_image'])
+	return render_template("studentlogin.html")
 
-    #return 'You are logged in as ' + session['Admission_number']
+#return 'You are logged in as ' + session['Admission_number']
+
+@app.route('/file/<filename>')
+def file(filename):
+	return mongo.send_file(filename)
+
 
 @app.route('/LoggedOut')
 def logout():
@@ -157,8 +179,8 @@ def StockEntry():
 		flash(invoice)
 
 		return render_template("invoices.html")
-		
-	return render_template("MainStockEntyForm.html")
+	Tabs = collection3.find()	
+	return render_template("MainStockEntyForm.html",tabs=Tabs)
 
 
 
@@ -192,7 +214,8 @@ def pharmastockissue():
 						collection4.insert_one(insert)
 						print('data posted Successfully')
 						insert1 = {'TabletName':TabletName, 'TotalTabs':TotalTabsIssued, 'RatePerUnit':RatePerUnit}
-					return 'Issued Quantiy Of ' +TabletName+ ' Are Not Available in Stock.:' +str(existingTabs)
+					else:
+						return 'Issued Quantiy Of ' +TabletName+ ' Are Not Available in Stock.:' +str(existingTabs)
 
 			for x in collection5.find({'TabletName':TabletName}):
 				print(x['TabletName'])
@@ -204,6 +227,7 @@ def pharmastockissue():
 			if collection5.count_documents({'TabletName':TabletName})==0:
 				print('hello')
 				collection5.insert_one(insert1)
+
 			i += 1
 
 		pharmaissues = collection4.find()
@@ -241,11 +265,16 @@ def MedicineIssue():
 						tabs = existingTabs-TotalTabsIssued
 						collection5.update_one({'TabletName':TabletName},{'$set': {'TotalTabs':tabs}})
 						print('data updated successfully')
-					return 'Issued Quantiy Of ' +TabletName+ ' Are Not Available in Stock.:' +str(existingTabs)
+					else:
+						return 'Issued Quantiy Of ' +TabletName+ ' Are Not Available in Stock.:' +str(existingTabs)
+
 
 			collection6.insert_one(insert)
+			
 			i += 1
+
 		print('medicine issued successfully')
+		
 		return 'medicine issued successfully!'
 	return render_template("StudentMedicineIssue.html")
 

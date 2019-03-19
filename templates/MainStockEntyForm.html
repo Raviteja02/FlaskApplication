@@ -26,6 +26,7 @@
     </style>
 </head>
 <body>
+
 <div class="card offset-md-3 offset-sm-0 " style="max-width: 50rem;">
     <div class="card-header text-center light-blue darken-3 white-text ">
     <h4 class="card-title">Stock Entry Form</h4>
@@ -68,7 +69,8 @@
                         <div class="row">
                         <div class="col-md-4">
                             <div id="tab_0_name" class="md-form mb-5">   
-                                <i class="fas fa-tablets prefix grey-text"></i>
+                                
+                                   <i class="fas fa-tablets prefix grey-text"></i>
                                 <input type="text" name="tab_0_name" id="tab_0_name" class="form-control">
                                 <label>Tablet Name</label>
                             </div>
@@ -122,6 +124,9 @@
     
     <script type="text/javascript">
         $("#czContainer").czMore();
+        $(document).ready(function() {
+$('.mdb-select').materialSelect();
+});
     </script>   
 </body>
 </html>
